@@ -7,6 +7,7 @@
 body {
     font-family: 'Roboto Slab', 'Arial', serif;
     color: #6f6d51;
+
 }
 
 a {
@@ -18,6 +19,11 @@ ul {
     list-style: none;
 }
 
+p {
+    font-size: 20px;
+    line-height: 40px;
+}
+
 .container {
     position: relative;
     width: 1140px;
@@ -25,11 +31,44 @@ ul {
 }
 
 header {
-    font-family: 'Roboto Mono', monospace;
     min-height: 150px;
     padding: 38px 0;
-    background-color: #f4e3b6;
+    color: #ffffff;
+    background-color: #7eabd5;
+}
 
+nav.menu {
+    padding: 45px 0;
+}
+
+nav.menu ul.menu_list {
+    display: flex;
+    justify-content: space-around;
+}
+
+ul.menu_list li a {
+    position: relative;
+    cursor: pointer;
+    line-height: 1;
+}
+
+ul.menu_list li a:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    /*изменить на right:0;, чтобы изменить направление подчёркивания */
+    width: 0;
+    height: 2px;
+    /*задаём ширину линии*/
+    background-color: #ffffff;
+    /*задаём цвет линии*/
+    content: "";
+    transition: width 0.3s ease-out;
+}
+
+ul.menu_list li a:hover:after,
+ul.menu_list li a:focus:after {
+    width: 100%;
 }
 
 section.promo {
@@ -41,21 +80,89 @@ h1.promo_header {
     margin-left: 391px;
     font-size: 41px;
     font-weight: 600;
-    line-height: 24px;
     text-transform: uppercase;
     text-align: center;
 }
 
 img.promo_photo {
     position: absolute;
-    left: -250px;
+    top: 40px;
+    left: -100px;
     z-index: -1;
 }
 
-.promo_text {
-    margin-top: 25px;
+.promo_content {
     margin-left: 391px;
+}
+
+.promo_text {
+    padding: 45px 25px;
     font-size: 17px;
-    font-weight: 300;
-    line-height: 27px;
+    text-align: center;
+}
+
+.promo_text span {
+    font-size: 25px;
+    font-style: italic;
+}
+
+button.promo_btn {
+    display: block;
+    padding: 15px 30px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 40px 40px #F137A6 inset, 0 0 0 0 #F137A6;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: white;
+    transition: .45s ease-in-out;
+    text-transform: uppercase;
+}
+
+button.promo_btn:hover {
+    box-shadow: 0 0 10px 0 #F137A6 inset, 0 0 10px 4px #F137A6;
+    color: #F137A6;
+}
+
+#modal {
+    width: 1150px;
+    height: 600px;
+    background-color: #7eabd5;
+    text-align: center;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+div#modal p {
+    padding: 245px 0 50px;
+}
+
+#modal:target {
+    display: block;
+}
+
+.close {
+    display: block;
+    border: none;
+    border-radius: 10px;
+    color:#6f6d51;
+    padding: 25px;
+    margin: 10px;    
+    background: #f2f2f2;
+    font-size: 14pt;    
+}
+
+.close:hover {
+    background: #e6e6ff;
 }
